@@ -48,7 +48,7 @@ PHP 7.3:
 Navigate to the `docker-compose-web-dev` folder.
 
 Start the environment with:
-`docker-compose up`
+`docker-compose up --build`
 
 Stop the environment with:
 `ctrl-c` and then `docker-compose down`
