@@ -24,7 +24,7 @@ The location of your hosts file varies depending on your operating system:
 
 Next, from your command line:
 * Navigate to the `docker-compose-web-dev` folder.
-* Run `docker-compose up`.
+* Run `docker-compose up --build`.
 * Once the build finishes, open your browser and navigate to: http://loc.php73.com
 * You should see a page titled *HTML Test Page for /php73*.
 
