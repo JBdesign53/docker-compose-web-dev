@@ -1,3 +1,7 @@
 ECHO OFF
-cd C:\path\to\directory\docker-compose-web-dev
+
+:: Optional: change drive letter
+cd /d D:\
+cd path\to\directory\docker-compose-web-dev
+
 docker compose down
