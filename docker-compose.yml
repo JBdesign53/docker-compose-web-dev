@@ -36,14 +36,22 @@ services:
     volumes:
       - ${HTML_VOLUME}:/var/www/html/
 
-#  mysql:
-#    image: mariadb:10.4.2
-#    container_name: sql
+  mysql:
+    image: mariadb:latest
+    container_name: mariadb
 
-#    networks:
-#      - backend
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=insecurepassword
+#    depends_on:
+#      - centos
+    ports:
+      - '3306:3306'
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+# Create database, tables, columns in PHP
+#     - MYSQL_DATABASE=jeff_db
 
   apache:
     build: './docker/apache/'
@@ -54,7 +62,7 @@ services:
       - php70
       - php73
       - php83
-#      - mysql
+      - mysql
     ports:
       - "80:80"
       - "443:443"
