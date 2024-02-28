@@ -5,23 +5,23 @@ networks:
   backend:
 
 services:
-  php56:
-    build: './docker/php56/'
-    container_name: php56
+#  php56:
+#    build: './docker/php56/'
+#    container_name: php56
 
-    networks:
-      - backend
-    volumes:
-      - ${HTML_VOLUME}:/var/www/html/
+#    networks:
+#      - backend
+#    volumes:
+#      - ${HTML_VOLUME}:/var/www/html/
 
-  php70:
-    build: './docker/php70/'
-    container_name: php70
+#  php70:
+#    build: './docker/php70/'
+#    container_name: php70
 
-    networks:
-      - backend
-    volumes:
-      - ${HTML_VOLUME}:/var/www/html/
+#    networks:
+#      - backend
+#    volumes:
+#      - ${HTML_VOLUME}:/var/www/html/
 
   php73:
     build: './docker/php73/'
@@ -58,8 +58,8 @@ services:
     container_name: centos
     
     depends_on:
-      - php56
-      - php70
+#      - php56
+#      - php70
       - php73
       - php83
       - mysql
