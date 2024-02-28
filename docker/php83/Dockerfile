@@ -12,7 +12,9 @@ RUN pecl install xdebug-3.3.1 \
 
 # Install mysqli
 RUN docker-php-ext-install mysqli \
-    && docker-php-ext-enable mysqli
+    && docker-php-ext-enable mysqli \
+    && docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-enable pdo pdo_mysql
 
 # Mail
 RUN apt-get update && \
