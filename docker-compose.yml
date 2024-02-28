@@ -36,15 +36,17 @@ services:
     volumes:
       - ${HTML_VOLUME}:/var/www/html/
 
-  mysql:
+  mariadb:
     image: mariadb:latest
     container_name: mariadb
-
-#    depends_on:
-#      - centos
+    # IMPORTANT! Change the left port number (host system) to something other than 3306.
+    # I suspect any locally running MySQL instance will be found first when using default 3306. Instead assign a different port number for host access to MariaDB such as from HeidiSQL:
+    # IP: 127.0.0.1
+    # Port: 33060
     ports:
-      - '3306:3306'
+      - '33060:3306'
     networks:
+      - frontend
       - backend
     environment:
       - MYSQL_ROOT_PASSWORD=password
@@ -62,7 +64,7 @@ services:
 #      - php70
       - php73
       - php83
-      - mysql
+      - mariadb
     ports:
       - "80:80"
       - "443:443"
